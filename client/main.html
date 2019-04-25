@@ -1,0 +1,158 @@
+<head>
+  <title>Chords</title>
+</head>
+
+
+<template name="ApplicationLayout">
+  {{> yield "navbar"}}
+  {{> yield "mainbody"}}
+  {{> yield "footer"}}
+</template>
+
+<template name="navbar_section">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Chords</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/chords/">Chord Calculator</a></li>
+          <li><a href="/scales/">Scale Constructor</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</template>
+
+<template name="body_section_home">
+  <div class="jumbotron text-center">
+    <h1>CHORDS</h1>
+    <p>Welcome to the Jungle</p>
+  </div>
+  <div class="container-fluid">
+  <h2>A webpage for guitarists</h2>
+  <h4>Providing tools to construct both scales and chords..</h4>
+  <p>Select an option fron the menus above and lets get started!</p>
+</div>
+</template>
+
+<template name="body_section_chords">
+  <div class="breadcrumb-div">
+    <ol class="breadcrumb breadcrumb-list">
+      <li><a href="/">Home</a></li>
+      <li class="active">Chords</li>
+    </ol>
+  </div>
+
+  <div class="container-fluid container-padding">
+    <h2>Chords</h2>
+</div>
+</template>
+
+<template name="body_section_scales">
+  <div class="breadcrumb-div">
+    <ol class="breadcrumb breadcrumb-list">
+      <li><a href="/">Home</a></li>
+      <li class="active">Scales</li>
+    </ol>
+  </div>
+  <div class="container-fluid container-padding">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Strings<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                {{#each getStrings}}
+                  <li><a class="js-strings-dropdown" href="#">{{this}}</a></li>
+                {{/each}}
+              </ul>
+          </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tuning<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                {{#each getTunings}}
+                  <li><a class="js-tunings-dropdown" href="#">{{this}}</a></li>
+                {{/each}}
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Key<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                {{#each getKeys}}
+                  <li><a class="js-keys-dropdown" href="#">{{this}}</a></li>
+                {{/each}}
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scale<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                {{#each getScales}}
+                  <li><a class="js-scales-dropdown" href="#">{{this}}</a></li>
+                {{/each}}
+              </ul>
+            </li>
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <h2>{{getTitle}}</h2>
+
+
+      {{> fretboard}}
+
+
+  </div>
+</template>
+
+<template name="body_section_about">
+  <div class="breadcrumb-div">
+    <ol class="breadcrumb breadcrumb-list">
+      <li><a href="/">Home</a></li>
+      <li class="active">About</li>
+    </ol>
+  </div>
+  <div class="container-fluid container-padding">
+    <h2>About</h2>
+</div>
+</template>
+
+<template name="footer_section">
+  <footer class="footer navbar-fixed-bottom">
+    <div class="container-fluid text-center">
+      <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+      <p> Chords 2019 </p>
+    </div>
+  </footer>
+
+</template>
+
+<template name="fretboard">
+  <div class="container" id="scales-div">
+    </div>
+</template>

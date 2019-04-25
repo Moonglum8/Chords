@@ -1,0 +1,70 @@
+body {
+  padding-top: 50px;
+}
+
+.navbar {
+  margin-bottom: 0;
+  background-color: #f4511e;
+  z-index: 9999;
+  border: 0;
+  font-size: 12px !important;
+  line-height: 1.42857143 !important;
+  letter-spacing: 4px;
+  border-radius: 0;
+
+}
+
+.navbar li a, .navbar .navbar-brand {
+  color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+  color: #f4511e !important;
+  background-color: #fff !important;
+}
+
+.navbar .dropdown .dropdown-menu  li a {
+  color: #000000 !important;
+}
+
+.navbar .dropdown .dropdown-menu  li a:hover {
+  color: #f4511e !important;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+  color: #fff !important;
+}
+
+
+.jumbotron {
+  background-color: #f4511e;
+  color: #fff;
+  padding: 50px 25px;
+}
+
+.container-padding {
+  padding: 0px 50px;
+}
+
+.breadcrumb-div {
+  position: relative;
+
+}
+
+.breadcrumb-list {
+  border: 0;
+  font-size: 12px !important;
+  line-height: 1.42857143 !important;
+  letter-spacing: 4px;
+  border-radius: 0;
+  position: relative;
+  bottom: 0;
+
+}
+
+footer .glyphicon {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #f4511e;
+}
