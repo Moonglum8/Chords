@@ -136,6 +136,7 @@ Template.body_section_scales.helpers({
   },
   getKeys: function() {
       var keys = dictionary.keys;
+      keys = keys.map(function(x){ return x.toUpperCase() })
       //console.log(keys);
       return keys;
   },
@@ -145,7 +146,7 @@ Template.body_section_scales.helpers({
       return Object.keys(scales);
   },
   getTitle: function() {
-      var title = Session.get("keys").toUpperCase() + ' ' + Session.get("scalesFull");
+      var title = Session.get("keys").toUpperCase() + ' ' + Session.get("scalesFull") + ' (' + Session.get("tuningsFull") + ' tuning)';
       //console.log(title);
       return title;
   },
@@ -159,6 +160,8 @@ Template.body_section_scales.events({
     //console.log(strings);
     Session.set("strings", strings);
     Session.set("stringsFull", stringsFull);
+    Session.set("tunings", 'standard');
+    Session.set("tuningsFull", 'Standard');
     makeFrets();
   },
   'click .js-tunings-dropdown':function(event){
