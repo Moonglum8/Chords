@@ -302,13 +302,19 @@ export var Fretboard = function(config) {
         // 0.75 is the offset into the fret (higher is closest to fret)
         .attr("cx", (absPitch - basePitch + 0.75) * instance.fretWidth)
         .attr("cy", (string - 1) * instance.fretHeight + 1 + YMARGIN())
-        .attr("r", 6).style("stroke", color).style("fill", "white")
+        .attr("r", 9).style("stroke", color).style("fill", "white")
         .on("click", function(d) {
           let fill = this.style.fill;
           this.setAttribute("stroke-width", 5 - parseInt(this.getAttribute("stroke-width")));
           this.style.fill = fill == "white" ? "lightgray" : "white";
-        })
-        .append("title").text(note.toUpperCase());
+        });
+
+      instance.svgContainer
+        .append("text")
+          .attr("x", (absPitch - basePitch + 0.75 -0.1) * instance.fretWidth)
+          .attr("y", (string - 1 + 0.25) * instance.fretHeight + 1 + YMARGIN())
+          .text(note[0].toUpperCase())
+          .append("title").text(note.toUpperCase());
     }
     return instance;
   };
