@@ -128,8 +128,8 @@ export var Fretboard = function(config) {
     startFret: config.startFret || 0,
     strings: config.strings || 6,
     tuning: config.tuning || Tunings.guitar6.standard,
-    fretWidth: 50,
-    fretHeight: 20
+    fretWidth: 75,
+    fretHeight: 34
   };
 
   //console.log(instance);
@@ -206,7 +206,7 @@ export var Fretboard = function(config) {
         .attr("x2", XMARGIN() + fretboardWidth())
         .attr("y2", i * instance.fretHeight + 1 + YMARGIN())
         .attr("stroke", "black")
-        .attr("stroke-width", 1);
+        .attr("stroke-width", 3);
     }
     var placeTuning = function(d, i) {
       return (instance.strings - i) * instance.fretHeight - 5 + "px";
@@ -300,20 +300,20 @@ export var Fretboard = function(config) {
         .attr("class", "note")
         .attr("stroke-width", 1)
         // 0.75 is the offset into the fret (higher is closest to fret)
-        .attr("cx", (absPitch - basePitch + 0.75) * instance.fretWidth)
+        .attr("cx", (absPitch - basePitch + 0.615) * instance.fretWidth)
         .attr("cy", (string - 1) * instance.fretHeight + 1 + YMARGIN())
-        .attr("r", 9).style("stroke", color).style("fill", "white")
+        .attr("r", 16).style("stroke", color).style("fill", "white")
         .on("click", function(d) {
           let fill = this.style.fill;
           this.setAttribute("stroke-width", 5 - parseInt(this.getAttribute("stroke-width")));
           this.style.fill = fill == "white" ? "lightgray" : "white";
         });
-
       instance.svgContainer
         .append("text")
-          .attr("x", (absPitch - basePitch + 0.75 -0.1) * instance.fretWidth)
-          .attr("y", (string - 1 + 0.25) * instance.fretHeight + 1 + YMARGIN())
-          .text(note[0].toUpperCase())
+          .attr("x", (absPitch - basePitch + 0.75 - 0.125) * instance.fretWidth)
+          .attr("y", (string - 1 + 0.19) * instance.fretHeight + 1 + YMARGIN())
+          .text(note.toUpperCase())
+          .style("text-anchor", "middle")
           .append("title").text(note.toUpperCase());
     }
     return instance;
